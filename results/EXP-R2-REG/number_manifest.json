@@ -1,0 +1,728 @@
+{
+ "exp": "V-R2-3：number manifest（SSOT 叙述数字→JSON 字段路径映射；防转写滑笔 lint 底账）",
+ "date": "2026-10-24",
+ "usage": "论文正文每个关键数字须能映射到本表某行的 JSON 路径；写作路收口时跑 grep 式交叉核对（V15）。历史教训：R1A2-m3（0.008057→「0.0071」）、R1A2-m1（全区间 0.0-0.182 取最大值当代表值）。",
+ "mappings": [
+  {
+   "n": "temporal 聚合 p=0.0005×3 / Holm 0.003",
+   "path": "results/EXP-R1-E6/e6_inference.json:E2.families.family_half2_mixed.agg_p_raw[0:3] / holm_aggregate[0:3]",
+   "note": "m=24 统一口径 Holm=0.012 见 results/EXP-R2-E9/e9_auc_logon_agg.json:families.family_half2_mixed.holm_aggregate_m24；摘要引用两口径其一并注明",
+   "checks": [
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half2_mixed.agg_p_raw[0]",
+     "expect": 0.0005
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half2_mixed.agg_p_raw[1]",
+     "expect": 0.0005
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half2_mixed.agg_p_raw[2]",
+     "expect": 0.0005
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half2_mixed.agg_p_raw[3]",
+     "expect": 0.17291
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half2_mixed.agg_p_raw[4]",
+     "expect": 0.09795
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half2_mixed.agg_p_raw[5]",
+     "expect": 0.13343
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:families.family_half2_mixed.holm_aggregate_m24[0]",
+     "expect": 0.012
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:families.family_half2_mixed.holm_aggregate_m24[1]",
+     "expect": 0.012
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:families.family_half2_mixed.holm_aggregate_m24[2]",
+     "expect": 0.012
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:families.family_half2_mixed.holm_aggregate_m24[3]",
+     "expect": 0.79044
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:families.family_half2_mixed.holm_aggregate_m24[4]",
+     "expect": 0.68565
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:families.family_half2_mixed.holm_aggregate_m24[5]",
+     "expect": 0.79044
+    }
+   ]
+  },
+  {
+   "n": "half1 LOGON AP 聚合不显著 agg_p 0.074-0.595",
+   "path": "results/EXP-R1-E6/e6_inference.json:E2.families.family_half1_logonAP.agg_p_raw",
+   "note": "P0-4 弱化事实；双口径写回 RESEARCH_LOG E2 段",
+   "checks": [
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half1_logonAP.agg_p_raw[0]",
+     "expect": 0.50825
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half1_logonAP.agg_p_raw[1]",
+     "expect": 0.44728
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half1_logonAP.agg_p_raw[2]",
+     "expect": 0.5952
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half1_logonAP.agg_p_raw[3]",
+     "expect": 0.07446
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half1_logonAP.agg_p_raw[4]",
+     "expect": 0.32334
+    },
+    {
+     "path": "EXP-R1-E6/e6_inference.json:E2.families.family_half1_logonAP.agg_p_raw[5]",
+     "expect": 0.27436
+    }
+   ]
+  },
+  {
+   "n": "auc_logon 聚合（E9 新证据）",
+   "path": "results/EXP-R2-E9/e9_auc_logon_agg.json:per_point[*].seed_aggregate + cross_aggregate_calibers",
+   "note": "本轮 P0-4 新增，引用以该文件为准",
+   "checks": [
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:per_point[0].seed_aggregate.p_b2000",
+     "expect": 0.002
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:per_point[1].seed_aggregate.p_b2000",
+     "expect": 0.02699
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:per_point[2].seed_aggregate.p_b2000",
+     "expect": 0.0095
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:per_point[3].seed_aggregate.p_b2000",
+     "expect": 0.02749
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:per_point[4].seed_aggregate.p_b2000",
+     "expect": 0.0005
+    },
+    {
+     "path": "EXP-R2-E9/e9_auc_logon_agg.json:per_point[5].seed_aggregate.p_b2000",
+     "expect": 0.0005
+    }
+   ]
+  },
+  {
+   "n": "fixed@τ_t arl500 检出全区间 0.0-0.182（含 homo s1=0.0/delay=None）",
+   "path": "results/EXP-R1-E5/e5_evt_calib.json:g3_h1_reverdict.arl500.rows[*].fixed_evt.det_rate",
+   "note": "R1A2-m1：禁止引单格 0.182 当代表值",
+   "checks": [
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:g3_h1_reverdict.arl500.rows[7].fixed_evt.det_rate",
+     "expect": 0.0,
+     "note": "homo_s1 全区间下限端点（delay=None）"
+    },
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:g3_h1_reverdict.arl500.rows[0].fixed_evt.det_rate",
+     "expect": 0.182,
+     "note": "full_s0=全区间最大值 0.182（禁单格代表值，R1A2-m1）"
+    },
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:g3_h1_reverdict.arl500.noninferior_counts.cusum",
+     "expect": "9/9"
+    }
+   ]
+  },
+  {
+   "n": "τ_t=3.0531/4.2068",
+   "path": "results/EXP-R1-E5/e5_evt_calib.json:calibration.top50mean.arl*.main_tpivot.tau + src/e5_evt_calib.py:160-164",
+   "note": "scipy 逐位复算一致（R1A2/R2B 双复审+本轮环境自测三重）",
+   "checks": [
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:calibration.top50mean.arl100.main_tpivot.tau",
+     "expect": 3.0531
+    },
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:calibration.top50mean.arl500.main_tpivot.tau",
+     "expect": 4.2068
+    }
+   ]
+  },
+  {
+   "n": "G1 直接模拟 rate×ARL0",
+   "path": "results/EXP-R2-REG/e5_direct_check.json:unconditional_iid_200k.arl*.rate_x_arl0（论文引用口径）+ incase_value（存档 0.952/1.025）+ reviewer_values",
+   "note": "P0-2/V6：三实现并报，论文用无条件结构值",
+   "checks": [
+    {
+     "path": "EXP-R2-REG/e5_direct_check.json:unconditional_iid_200k.arl100.rate_x_arl0",
+     "expect": 0.9915
+    },
+    {
+     "path": "EXP-R2-REG/e5_direct_check.json:unconditional_iid_200k.arl500.rate_x_arl0",
+     "expect": 1.0275
+    }
+   ]
+  },
+  {
+   "n": "G1 原门 fail 值 pass_frac=0.08/0.02、mean_rate×ARL0=0.8245/0.6722",
+   "path": "logs/e5_main.log 末尾 G1 行 == results/EXP-R1-E5/e5_evt_calib.json:g1_synthetic.arl*（双源逐位一致，本轮 V7 核对）",
+   "note": "P0-3 三句式第二句证据",
+   "checks": [
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:g1_synthetic.arl100.pass_frac_lt33pct_reported",
+     "expect": 0.08
+    },
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:g1_synthetic.arl500.pass_frac_lt33pct_reported",
+     "expect": 0.02
+    },
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:g1_synthetic.arl100.mean_alarm_rate_x_arl0",
+     "expect": 0.8245
+    },
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:g1_synthetic.arl500.mean_alarm_rate_x_arl0",
+     "expect": 0.6722
+    }
+   ]
+  },
+  {
+   "n": "ξ̂=−3.92、QQ 相关 −0.61",
+   "path": "results/EXP-R1-E5/e5_evt_calib.json:calibration.top50mean.gpd_xi_main / qq_corr_main",
+   "note": "P0-3 三句式第三句证据",
+   "checks": [
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:calibration.top50mean.gpd_xi_main",
+     "expect": -3.9224
+    },
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:calibration.top50mean.qq_corr_main",
+     "expect": -0.61
+    }
+   ]
+  },
+  {
+   "n": "E3 signed_diff_decreased=[F,F,T]/[F,F,T]、inband=[F,T,T]/[T,T,T]/[T,T,T]",
+   "path": "results/EXP-R2-E10/e10_e3_pooled_replay.json:metrics.*（重放逐位一致）+ results/EXP-R1-E6/e6_inference.json:E3",
+   "note": "P0-5：注记改「2/3 seed 缩小、s2 越零反向、均值缩小」双口径",
+   "checks": [
+    {
+     "path": "EXP-R2-E10/e10_e3_pooled_replay.json:metrics.auc_mixed.inband_w33_computed_pooled",
+     "expect": [
+      false,
+      true,
+      true
+     ]
+    },
+    {
+     "path": "EXP-R2-E10/e10_e3_pooled_replay.json:metrics.auc_logon.inband_w33_computed_pooled",
+     "expect": [
+      true,
+      true,
+      true
+     ]
+    },
+    {
+     "path": "EXP-R2-E10/e10_e3_pooled_replay.json:metrics.ap_logon.inband_w33_computed_pooled",
+     "expect": [
+      true,
+      true,
+      true
+     ]
+    },
+    {
+     "path": "EXP-R2-E10/e10_e3_pooled_replay.json:metrics.auc_mixed.signed_diff_decreased_w32_to_w33",
+     "expect": [
+      false,
+      false,
+      true
+     ]
+    },
+    {
+     "path": "EXP-R2-E10/e10_e3_pooled_replay.json:metrics.ap_logon.signed_diff_decreased_w32_to_w33",
+     "expect": [
+      false,
+      false,
+      true
+     ]
+    }
+   ]
+  },
+  {
+   "n": "E8a tw0 置换显著 2/3、E8b 3/3 可分 p=0.004/0.002/0.004",
+   "path": "results/EXP-R1-E8/e8_closure.json",
+   "note": "LOGON 口径合并判语见 P0-4 写回文本",
+   "checks": [
+    {
+     "path": "EXP-R1-E8/e8_closure.json",
+     "note": "presence 检查；E8a/E8b 逐 p 写作期取表（表结构无稳定点路径）",
+     "expect": null
+    }
+   ]
+  },
+  {
+   "n": "E7-F1 v2 full [0.0061,0.0065,0.0081] / homo_rerun [0.0119,0.0208,0.0081]",
+   "path": "results/EXP-R1-E7/e7_e4_repair.json:F1_ap_event_weighted_v2",
+   "note": "R1A2-m3/R2B-m3 滑笔更正：第 3 seed=0.0081（非 0.0071/~0.007）",
+   "checks": [
+    {
+     "path": "EXP-R1-E7/e7_e4_repair.json:F1_ap_event_weighted_v2.full.2.ap_event_weighted_v2",
+     "expect": 0.008057,
+     "note": "R1A2-m3/R2B-m3 滑笔更正：第 3 seed=0.008057（叙述 0.0081 为 4 位舍入）"
+    },
+    {
+     "path": "EXP-R1-E7/e7_e4_repair.json:F1_ap_event_weighted_v2.homo_rerun.2.ap_event_weighted_v2",
+     "expect": 0.008073
+    }
+   ]
+  },
+  {
+   "n": "class1 support=313,994、逐类差 class0 +0.228 主导",
+   "path": "results/EXP-R1-E7/e7_e4_repair.json:F3_w14_diagnosis.per_class_prf + unified_explanation_correction_r2",
+   "note": "P0-7 更正版文本以 correction 键为准",
+   "checks": [
+    {
+     "path": "EXP-R1-E7/e7_e4_repair.json:F3_w14_diagnosis.per_class_prf.full[0].class1.support",
+     "expect": 313994
+    }
+   ]
+  },
+  {
+   "n": "fixed 实测 ARL 8.7-9.4（54 点）",
+   "path": "results/EXP-R1-E1/e1_window_alert.json + results/R1_metrics.json:E1.c1_fair_recalibration.root_cause",
+   "note": "双审复算一致",
+   "checks": [
+    {
+     "path": "EXP-R1-E1/e1_window_alert.json",
+     "note": "presence 检查（54 点实测 ARL 8.7-9.4 聚合自 arms.* 窗级校准行，写作期取表）",
+     "expect": null
+    }
+   ]
+  },
+  {
+   "n": "族级误报预算 0.1047/0.0218",
+   "path": "results/EXP-R1-E5/e5_evt_calib.json:g3_h1_reverdict.arl*.familywise_falsealarm_11win",
+   "note": "P0-1：仅名义口径申报，对 deployed fixed（真实误报率 0）不成立",
+   "checks": [
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:g3_h1_reverdict.arl100.familywise_falsealarm_11win",
+     "expect": 0.1047
+    },
+    {
+     "path": "EXP-R1-E5/e5_evt_calib.json:g3_h1_reverdict.arl500.familywise_falsealarm_11win",
+     "expect": 0.0218
+    }
+   ]
+  },
+  {
+   "n": "E9/E11 敏感性：非劣计数收紧后 9/9、7/9 保持",
+   "path": "results/EXP-R2-E11/e11_g3_sensitivity.json:sensitivity.*.noninferior_kappa_tightened",
+   "note": "P0-1 单向敏感性（本轮新增）",
+   "checks": [
+    {
+     "path": "EXP-R2-E11/e11_g3_sensitivity.json:sensitivity.arl100/cusum_k0.5.noninferior_kappa_tightened",
+     "expect": "7/9"
+    },
+    {
+     "path": "EXP-R2-E11/e11_g3_sensitivity.json:sensitivity.arl100/ewma_l0.2.noninferior_kappa_tightened",
+     "expect": "7/9"
+    },
+    {
+     "path": "EXP-R2-E11/e11_g3_sensitivity.json:sensitivity.arl500/cusum_k0.5.noninferior_kappa_tightened",
+     "expect": "9/9"
+    },
+    {
+     "path": "EXP-R2-E11/e11_g3_sensitivity.json:sensitivity.arl500/ewma_l0.2.noninferior_kappa_tightened",
+     "expect": "9/9"
+    }
+   ]
+  },
+  {
+   "n": "E11 κ 收紧因子 arl100=1.3124/arl500=1.4616",
+   "path": "results/EXP-R2-E11/e11_g3_sensitivity.json:kappa_t_pivot_inflation",
+   "expect": {
+    "arl100": 1.3124,
+    "arl500": 1.4616
+   },
+   "caliber": "κ=τ_t(9,ARL0)/z_{1−1/ARL0}（z_{0.99}=2.3263、z_{0.998}=2.8782）；只比对不重算",
+   "note": "R2A-M1/R3B-M2 更正行（R2 第四轮 E17 闸2）：原 docstring/finalize_r3/RESEARCH_LOG/R1_metrics 四处误写 1.3122/1.2785（分母误植 3.2905=z_{1−1/2000}）；执行值以本行 expect 为准，finalize_r3.py 已改现读 JSON",
+   "checks": [
+    {
+     "path": "EXP-R2-E11/e11_g3_sensitivity.json:kappa_t_pivot_inflation.arl100",
+     "expect": 1.3124
+    },
+    {
+     "path": "EXP-R2-E11/e11_g3_sensitivity.json:kappa_t_pivot_inflation.arl500",
+     "expect": 1.4616
+    }
+   ]
+  },
+  {
+   "n": "D1 三臂×3seed 在案复现容差 |Δ|<5e-4",
+   "path": "results/EXP-R1-VERIFY/incase_check.json:tolerance + verdict",
+   "expect": 0.0005,
+   "caliber": "逐边 npz 复算 vs 在案 JSON 容差",
+   "note": "R3B-m2 补行；OUTLINE D1",
+   "checks": [
+    {
+     "path": "EXP-R1-VERIFY/incase_check.json:tolerance",
+     "expect": 0.0005
+    }
+   ]
+  },
+  {
+   "n": "D7 污染免疫 homoflows vs homo −0.08~−0.19 AUC 3/3 seeds（+temporal 下 homo FLOW 侧分数崩坏 0.61-0.69）",
+   "path": "RESEARCH_LOG.md §R1-E2（prose；数值表=e2_closure.json:eval_sweep_table 十二臂点 AUC）",
+   "path_type": "prose",
+   "note": "R3B-m2 补行；OUTLINE D7；精确逐格字段写作期映射核（本行先行占位防漏引）"
+  },
+  {
+   "n": "D12 小时窗两档并报：arl100 EWMA 覆盖 54%/延迟 0 vs fixed 4%/49h；arl500 fixed 覆盖 0.0/延迟 50h、CUSUM 7h",
+   "path": "results/EXP-R1-E1/e1_hourly_readout.json:readouts.ewma0.2@arl100.attack_coverage=0.544 + readouts.fixed@arl100.attack_coverage=0.044 + readouts.fixed@arl100.delay_h=49 + readouts.fixed@arl500.{attack_coverage,delay_h}=[0.0,50] + readouts.cusum0.5@arl500.delay_h=7",
+   "expect": {
+    "ewma_arl100_coverage": 0.544,
+    "fixed_arl100_coverage": 0.044,
+    "fixed_arl100_delay_h": 49,
+    "fixed_arl500_coverage": 0.0,
+    "fixed_arl500_delay_h": 50,
+    "cusum_arl500_delay_h": 7
+   },
+   "caliber": "小时窗读出（C2 附表化）；R1B-m3/R3B-m3 两档并报",
+   "note": "R3B-m2/m3 补行；OUTLINE D12",
+   "checks": [
+    {
+     "path": "EXP-R1-E1/e1_hourly_readout.json:readouts.ewma0.2@arl100.attack_coverage",
+     "expect": 0.544
+    },
+    {
+     "path": "EXP-R1-E1/e1_hourly_readout.json:readouts.fixed@arl100.attack_coverage",
+     "expect": 0.044
+    },
+    {
+     "path": "EXP-R1-E1/e1_hourly_readout.json:readouts.fixed@arl100.delay_h",
+     "expect": 49
+    },
+    {
+     "path": "EXP-R1-E1/e1_hourly_readout.json:readouts.fixed@arl500.attack_coverage",
+     "expect": 0.0
+    },
+    {
+     "path": "EXP-R1-E1/e1_hourly_readout.json:readouts.fixed@arl500.delay_h",
+     "expect": 50
+    },
+    {
+     "path": "EXP-R1-E1/e1_hourly_readout.json:readouts.cusum0.5@arl500.delay_h",
+     "expect": 7
+    }
+   ]
+  },
+  {
+   "n": "W12 标签覆盖率 98.93%（redteam 749→741 事件→510 唯一攻击行）",
+   "path": "RESEARCH_LOG.md:112 §W12 丢样表（prose；数据准备层）",
+   "path_type": "prose",
+   "note": "R3B-m2 补行；OUTLINE §III 数据段；写作期映射到数据表时逐位核对"
+  },
+  {
+   "n": "三臂参数数 full=843,631 / homo=834,653 / w33 补偿臂=860,998",
+   "path": "results/EXP-R1-E3/w9_param_recount.json:{full_w32,homo_w32,homo_w33}.total",
+   "expect": {
+    "full_w32": 843631,
+    "homo_w32": 834653,
+    "homo_w33": 860998
+   },
+   "caliber": "参数计数（w9 重算权威源）；容量对齐口径=总参数（homo 与 full 差 0.819%/1.064% 双口径另见 R1_metrics.disclosures.param_gap_dual_caliber）",
+   "note": "R3B-m2 补行；OUTLINE §III 表 2",
+   "checks": [
+    {
+     "path": "EXP-R1-E3/w9_param_recount.json:full_w32.total",
+     "expect": 843631
+    },
+    {
+     "path": "EXP-R1-E3/w9_param_recount.json:homo_w32.total",
+     "expect": 834653
+    },
+    {
+     "path": "EXP-R1-E3/w9_param_recount.json:homo_w33.total",
+     "expect": 860998
+    }
+   ]
+  },
+  {
+   "n": "D4 tost 边界扫描（R3/P0-3 补行）：CI 下界 −0.00956 与 Δ 排除（起排除作用为下界）",
+   "producer": "src/r3_manifest_append.py（R3/P0-3；expect 现读固化）",
+   "checks": [
+    {
+     "path": "EXP-R2-REG/tost_boundary_scan_ap.json:ci_bounds_range.ci_lower_min",
+     "expect": -0.00956,
+     "note": "min 下界=−0.00956>−0.01（最紧格 uniform_1）"
+    },
+    {
+     "path": "EXP-R2-REG/tost_boundary_scan_ap.json:ci_bounds_range.ci_upper_max",
+     "expect": 0.00327,
+     "note": "上界不承担排除语义（R2-E14 更正口径）"
+    },
+    {
+     "path": "EXP-R2-REG/tost_boundary_scan_ap.json:points.uniform_1.ci90[0]",
+     "expect": -0.00956
+    },
+    {
+     "path": "EXP-R2-REG/tost_boundary_scan_ap.json:points.temporal_4.excludable_delta",
+     "expect": [
+      0.005,
+      0.01,
+      0.02,
+      0.05
+     ],
+     "note": "Δ=0.005 仅 temporal_4 可排除（预登记枚举）"
+    }
+   ]
+  },
+  {
+   "n": "R2-E13 延迟规则真实分歧（R3/P0-3 补行）：4 对 8 格（R2A-M2 完整双档口径；R3B-M1 为 arl100 子集）",
+   "producer": "src/r3_manifest_append.py（R3/P0-3；expect 现读固化）",
+   "checks": [
+    {
+     "path": "EXP-R2-REG/e4_window_row_fair_replay.json:delay_rule_divergence_count.pairs",
+     "expect": 4
+    },
+    {
+     "path": "EXP-R2-REG/e4_window_row_fair_replay.json:delay_rule_divergence_count.cells",
+     "expect": 8
+    }
+   ]
+  },
+  {
+   "n": "R2-E15 校准证书（R3/P0-3 补行）：越限 0/9-1/9-4/9 与双 null p（全精度；p 档界=1e-6）",
+   "producer": "src/r3_manifest_append.py（R3/P0-3；expect 现读固化自 R3 修复后证书）",
+   "checks": [
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl100.S1_tpivot_t9_8.k_exceed_pools",
+     "expect": "0/9"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl100.S2_z3_probe.k_exceed_pools",
+     "expect": "0/9"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl100.S3_empirical_reachable.k_exceed_pools",
+     "expect": "1/9"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl100.S4_evt_hybrid_REJECTED_daywindow.k_exceed_pools",
+     "expect": "4/9"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl500.S1_tpivot_t9_8.k_exceed_pools",
+     "expect": "0/9"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl500.S2_z3_probe.k_exceed_pools",
+     "expect": "0/9"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl500.S3_empirical_reachable.k_exceed_pools",
+     "expect": "1/9"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl500.S4_evt_hybrid_REJECTED_daywindow.k_exceed_pools",
+     "expect": "4/9"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl100.S3_empirical_reachable.exact_binomial.p_one_sided",
+     "expect": 0.0864827525163591,
+     "note": "arl100/S3 不拒绝（旧静态句「边缘拒绝」矛盾的数值现场，R2A2-M2①）"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl500.S3_empirical_reachable.exact_binomial.p_one_sided",
+     "expect": 0.017856669988026624,
+     "note": "arl500/S3 拒绝（口径依赖并报）"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl100.S4_evt_hybrid_REJECTED_daywindow.exact_binomial.p_one_sided",
+     "expect": 1.210432831444e-06,
+     "note": "全精度（旧 round6=1e-06，V2 diff 显式登记于 spec_curve v2 键）"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl500.S4_evt_hybrid_REJECTED_daywindow.exact_binomial.p_one_sided",
+     "expect": 1.999925667920611e-09,
+     "note": "全精度 ≈2e-9（旧 round6 舍为 0.0，R2A2-m3）"
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:certificate.arl500.S4_evt_hybrid_REJECTED_daywindow.exact_binomial.p_display_tier",
+     "expect": "<1e-6",
+     "note": "<1e-6 档（档界规则先登记于 criteria_r3.json）"
+    }
+   ]
+  },
+  {
+   "n": "R2-E16 60ep 聚合（R3/P0-3 补行）：mixed 0.26853/0.0005 与 LOGON AUC −0.00741/0.61619",
+   "producer": "src/r3_manifest_append.py（R3/P0-3；expect 现读固化）",
+   "checks": [
+    {
+     "path": "EXP-R2-E16/e12_60ep_seed_aggregate.json:ep30_vs_ep60_aggregate.auc_mixed.ep60_this.obs_mean_diff",
+     "expect": 0.26853
+    },
+    {
+     "path": "EXP-R2-E16/e12_60ep_seed_aggregate.json:ep30_vs_ep60_aggregate.auc_mixed.ep60_this.p_b2000",
+     "expect": 0.0005,
+     "note": "3/3 可分保持（60ep 口径稳健；族标注=稳健性抽查未入 Holm）"
+    },
+    {
+     "path": "EXP-R2-E16/e12_60ep_seed_aggregate.json:ep30_vs_ep60_aggregate.auc_logon.ep60_this.obs_mean_diff",
+     "expect": -0.00741,
+     "note": "30ep −0.02081→60ep −0.00741 方向保持幅度≈1/3（R4B-m4③ 勘误后口径）"
+    },
+    {
+     "path": "EXP-R2-E16/e12_60ep_seed_aggregate.json:ep30_vs_ep60_aggregate.auc_logon.ep60_this.p_b2000",
+     "expect": 0.61619,
+     "note": "未检出；红线：未检出≠等效"
+    }
+   ]
+  },
+  {
+   "n": "R3-P1-7 E2 full 臂 AP 补算（V16）：新算值无逐位参照（homo 机器核验 3/3 逐位过后方算）",
+   "producer": "src/r3_manifest_append.py（R3/P0-3；expect 现读固化自补算键）",
+   "checks": [
+    {
+     "path": "EXP-R1-E2/e2_closure.json:regression_check_full_ap_backfill_r3.rows.full_s0.ap_backfilled",
+     "expect": 0.0043
+    },
+    {
+     "path": "EXP-R1-E2/e2_closure.json:regression_check_full_ap_backfill_r3.rows.full_s1.ap_backfilled",
+     "expect": 0.0048
+    },
+    {
+     "path": "EXP-R1-E2/e2_closure.json:regression_check_full_ap_backfill_r3.rows.full_s2.ap_backfilled",
+     "expect": 0.0056
+    }
+   ]
+  },
+  {
+   "n": "claims/E15 族级 multiplicity 立场（R3A-m2）：arl500/S3 ×16=0.2857 不拒绝=唯一翻转格",
+   "producer": "src/r3_review2_minor_fixes.py（R3 第二轮方案二①判语-证据绑定）",
+   "checks": [
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:family_multiplicity_stance_r3.bonferroni_x16.arl500_S3_nullA.p_adjusted",
+     "expect": 0.285706719808426
+    }
+   ]
+  },
+  {
+   "n": "claims/E2 full 臂 AP 三方锚定+判语更正（R5B-M1）：E47B 锚=incase re 值=补算值逐位一致",
+   "producer": "src/r3_review2_minor_fixes.py（R3 第二轮方案二①）",
+   "checks": [
+    {
+     "path": "EXP-R1-E2/e2_closure.json:regression_check_full_ap_anchor_r3b.three_way_anchor.bitwise_identical",
+     "expect": true
+    },
+    {
+     "path": "EXP-R1-E2/e2_closure.json:regression_check_full_ap_anchor_r3b.three_way_anchor.anchor_ap_round4",
+     "expect": [
+      0.0043,
+      0.0048,
+      0.0056
+     ]
+    },
+    {
+     "path": "R1_metrics.json:not_done_this_round",
+     "expect": null
+    }
+   ]
+  },
+  {
+   "n": "claims/QUOTE 不构成出处申报（R5B-m2）+ 闸3 拦截力变异自证锚定（R3A-M1/R5B-M2）",
+   "producer": "src/r3_review2_minor_fixes.py（R3 第二轮方案二①）",
+   "checks": [
+    {
+     "path": "EXP-R3-REG/criteria_r3.json:quote_not_provenance_declaration_r3b.registered",
+     "expect": "R3b"
+    },
+    {
+     "path": "EXP-R3-REG/gate3_mutation_score_r3.json:mutation_score",
+     "expect": "8/8"
+    },
+    {
+     "path": "R1_metrics.json:_meta.not_done_appended_r3b",
+     "expect": null
+    }
+   ]
+  },
+  {
+   "n": "errata R3fix-E1（R4/P0-1）：行27 claims 判语「arl500/S3=唯一翻转格」不完整——全 16 格枚举后翻转 2 格（另加 arl100/S4 nullB ×16=0.0790）；raw 拒绝 5 格→族级校正后 3 格。原行 27 原文保留",
+   "errata_for_row": 27,
+   "errata_id": "R3fix-E1",
+   "producer": "src/r4_p0_registry_fixes.py（R4/P0-1+P1-2+P1-3）",
+   "checks": [
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:family_multiplicity_stance_r3.corrected_r4.counts.n_reject_raw",
+     "expect": 5
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:family_multiplicity_stance_r3.corrected_r4.counts.n_reject_bonferroni_x16",
+     "expect": 3
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:family_multiplicity_stance_r3.corrected_r4.counts.flips",
+     "expect": [
+      "arl100_S4_nullB",
+      "arl500_S3_nullA"
+     ]
+    },
+    {
+     "path": "EXP-R2-E15/calibration_certificate.json:family_multiplicity_stance_r3.corrected_r4.enumeration_16.arl100_S4_nullB.p_adjusted",
+     "expect": 0.07898370611405463,
+     "note_r4": "expect 现读固化（R4 终闸 G2FAIL 拦截手抄错——数字不手抄教训第 2 例，机器闸拦截）"
+    }
+   ]
+  },
+  {
+   "n": "R4/E18 简单基线臂（用户批准，D17）：UA AP 0.00429/AUC 0.7058；FREQ AP 0.00480/AUC 0.7558；池 131235/277",
+   "producer": "src/r4_ua_baseline.py（判据 criteria_r4 E18 项先冻；expect 现读固化）",
+   "checks": [
+    {
+     "path": "EXP-R4-E18/ua_baseline.json:ua_rule.ap",
+     "expect": 0.004288561373758031
+    },
+    {
+     "path": "EXP-R4-E18/ua_baseline.json:ua_rule.auc",
+     "expect": 0.7057912248218254
+    },
+    {
+     "path": "EXP-R4-E18/ua_baseline.json:freq_baseline.ap",
+     "expect": 0.004797640801412116
+    },
+    {
+     "path": "EXP-R4-E18/ua_baseline.json:freq_baseline.auc",
+     "expect": 0.7557641458393557
+    },
+    {
+     "path": "EXP-R4-E18/ua_baseline.json:pool.n_pool",
+     "expect": 131235
+    },
+    {
+     "path": "EXP-R4-E18/ua_baseline.json:pool.n_pos",
+     "expect": 277
+    }
+   ]
+  }
+ ],
+ "r4_appended_rows_note": "R2 第四轮（E17 闸2 前置补行，R3B-m2/R2A-M1）：新增 6 行；expect 字段供 verify_provenance.py 闸2 现读 diff；path_type=prose 行只登记出处不参与 JSON diff（写作期映射）",
+ "checks_upgrade_note": "R2 第四轮 E17 闸2 规范化：每行新增 checks=[{path(精确点路径),expect(现值固化)}]；原 path/expect 自然语言式字段原文保留（格式债登记）。expect 取自本脚本运行时刻 JSON 现值——闸2 只做「manifest expect vs JSON 现读」diff，不重算任何统计量（statcheck 教训适配：Holm/置换校正数字不可重算）。",
+ "r3_appended_rows_note": "R3/P0-3 追加行（只增不改）：5 行 expect 全部由 src/r3_manifest_append.py 现读交付 JSON 固化（禁手抄）；粒度=JSON 字面值原样不二次舍入（规则先登记于 results/EXP-R3-REG/criteria_r3.json）；原 21 行原文保留。R2A2-M3「本轮新数字零覆盖」自此闭环。",
+ "claims_layer_note_r3b": "R3 第二轮方案二①：claims 类行入列——凡「全部/零/断根/等效」级判语的更正与立场必须以登记行+机器 check 锚定（DO-178C 三向追溯同思想）；无 check 又未入 not_done 的强判语为闸2 违规（写作期 claim-lint 的登记层前提）",
+ "claim_lint_invariant_r4": {
+  "invariant": "闭环面 = 申报面 ∪ not_done 面——凡申报的处置/修复/遗留必须落在（number_manifest checks 行、criteria 判据、not_done_this_round 登记）之一，无第三态",
+  "scope": "V22 写作期 claim-lint 启用时将本不变量纳入检查范围（正文数字 lint 同批；OUTLINE 为计划文档暂不 lint）——登记层先行，前置未触发",
+  "purpose": "堵「子项静默脱落」复发面（R3A2-m1/R6B-m3/R3A2 建议3）",
+  "producer": "src/r4_p0_registry_fixes.py（R4/P0-1+P1-2+P1-3）",
+  "review_refs": "R3A2-m1 / R6B-m3 / criteria_r4 P1-2③"
+ }
+}

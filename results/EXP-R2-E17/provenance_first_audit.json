@@ -1,0 +1,672 @@
+{
+ "collected_at": "2026-10-25T22:22:40+08:00",
+ "gate1": {
+  "orphan_files": [],
+  "sourced_count": 78,
+  "key_level_orphans": [],
+  "key_scan_exempt_files": 27,
+  "key_exempt_by_class": {
+   "grid_composite": 36,
+   "data_entity": 4,
+   "pair_composite": 7,
+   "narrative_section": 3
+  },
+  "key_exemption_registry": "results/EXP-R3-REG/keyscan_exemption_registry_r3.json",
+  "constants": {
+   "scope_glob": "results/**/*.json",
+   "key_scan_depth_max": 2,
+   "list_container_not_descended": true,
+   "min_key_len": 5,
+   "canon_min_len": 3,
+   "canon_rule": "canon(k)=剥全部数字；有源 ⟺ k 原文 in src_all 或 (len(canon(k))>=3 且 canon(k) in canon(src_all))——剥数字仅作豁免判定，孤儿按原键名上报",
+   "composite_segment_rule": "含 '/' 复合键按段判定：每段（原文 in src_all 或 canon(段) in canon_src）全命中方为有源——f'{arm}/s{seed}/{tier}' 型动态插值键的生产者检测近似；单字符段残留误豁免风险如实申报（见 criteria_r3.json）",
+   "skip_files": "stem 以 criteria 开头或命中 FILE_EXEMPT（登记文档按设计无生产者，沿用 R2 文本键豁免处置）",
+   "src_scan_exclude": [
+    "test_r3",
+    "r3_gate1_twophase",
+    "r3_keyscan_exemptions"
+   ],
+   "src_scan_exclude_semantics": "元脚本（测试/两阶段留档/豁免登记表）自身讨论键名字面量——讨论串不构成生产者，剔除出键级 src 快照；真生产者脚本（r3_key_producers/r3_e2_full_ap_backfill 等）保留",
+   "synthetic_guard": "含数字无源的合成键（bad-key 型）剥数字后不命中 src → 仍报孤儿（数字不再整键豁免）"
+  }
+ },
+ "gate2": {
+  "manifest_rows": [
+   {
+    "n": "temporal 聚合 p=0.0005×3 / Holm 0.003",
+    "path_type": "json",
+    "checks_verdict": "12/12 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "half1 LOGON AP 聚合不显著 agg_p 0.074-0.595",
+    "path_type": "json",
+    "checks_verdict": "6/6 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "auc_logon 聚合（E9 新证据）",
+    "path_type": "json",
+    "checks_verdict": "6/6 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "fixed@τ_t arl500 检出全区间 0.0-0.182（含 homo s1=0.0/del",
+    "path_type": "json",
+    "checks_verdict": "3/3 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "τ_t=3.0531/4.2068",
+    "path_type": "json",
+    "checks_verdict": "2/2 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "G1 直接模拟 rate×ARL0",
+    "path_type": "json",
+    "checks_verdict": "2/2 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "G1 原门 fail 值 pass_frac=0.08/0.02、mean_rate×ARL0=0.",
+    "path_type": "json",
+    "checks_verdict": "4/4 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "ξ̂=−3.92、QQ 相关 −0.61",
+    "path_type": "json",
+    "checks_verdict": "2/2 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "E3 signed_diff_decreased=[F,F,T]/[F,F,T]、inband=[F",
+    "path_type": "json",
+    "checks_verdict": "5/5 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "E8a tw0 置换显著 2/3、E8b 3/3 可分 p=0.004/0.002/0.004",
+    "path_type": "json",
+    "checks_verdict": "1/1 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "E7-F1 v2 full [0.0061,0.0065,0.0081] / homo_rerun ",
+    "path_type": "json",
+    "checks_verdict": "2/2 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "class1 support=313,994、逐类差 class0 +0.228 主导",
+    "path_type": "json",
+    "checks_verdict": "1/1 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "fixed 实测 ARL 8.7-9.4（54 点）",
+    "path_type": "json",
+    "checks_verdict": "1/1 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "族级误报预算 0.1047/0.0218",
+    "path_type": "json",
+    "checks_verdict": "2/2 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "E9/E11 敏感性：非劣计数收紧后 9/9、7/9 保持",
+    "path_type": "json",
+    "checks_verdict": "4/4 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "E11 κ 收紧因子 arl100=1.3124/arl500=1.4616",
+    "path_type": "json",
+    "checks_verdict": "2/2 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "D1 三臂×3seed 在案复现容差 |Δ|<5e-4",
+    "path_type": "json",
+    "checks_verdict": "1/1 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "D7 污染免疫 homoflows vs homo −0.08~−0.19 AUC 3/3 seed",
+    "path_type": "prose",
+    "check": "prose 出处登记（写作期映射核）",
+    "ok": true
+   },
+   {
+    "n": "D12 小时窗两档并报：arl100 EWMA 覆盖 54%/延迟 0 vs fixed 4%/49",
+    "path_type": "json",
+    "checks_verdict": "6/6 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "W12 标签覆盖率 98.93%（redteam 749→741 事件→510 唯一攻击行）",
+    "path_type": "prose",
+    "check": "prose 出处登记（写作期映射核）",
+    "ok": true
+   },
+   {
+    "n": "三臂参数数 full=843,631 / homo=834,653 / w33 补偿臂=860,99",
+    "path_type": "json",
+    "checks_verdict": "3/3 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "D4 tost 边界扫描（R3/P0-3 补行）：CI 下界 −0.00956 与 Δ 排除（起排除",
+    "path_type": "json",
+    "checks_verdict": "4/4 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "R2-E13 延迟规则真实分歧（R3/P0-3 补行）：4 对 8 格（R2A-M2 完整双档口径；",
+    "path_type": "json",
+    "checks_verdict": "2/2 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "R2-E15 校准证书（R3/P0-3 补行）：越限 0/9-1/9-4/9 与双 null p（全",
+    "path_type": "json",
+    "checks_verdict": "13/13 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "R2-E16 60ep 聚合（R3/P0-3 补行）：mixed 0.26853/0.0005 与 ",
+    "path_type": "json",
+    "checks_verdict": "4/4 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "R3-P1-7 E2 full 臂 AP 补算（V16）：新算值无逐位参照（homo 机器核验 3/",
+    "path_type": "json",
+    "checks_verdict": "3/3 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "claims/E15 族级 multiplicity 立场（R3A-m2）：arl500/S3 ×1",
+    "path_type": "json",
+    "checks_verdict": "1/1 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "claims/E2 full 臂 AP 三方锚定+判语更正（R5B-M1）：E47B 锚=incas",
+    "path_type": "json",
+    "checks_verdict": "3/3 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "claims/QUOTE 不构成出处申报（R5B-m2）+ 闸3 拦截力变异自证锚定（R3A-M1/",
+    "path_type": "json",
+    "checks_verdict": "3/3 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "errata R3fix-E1（R4/P0-1）：行27 claims 判语「arl500/S3=唯",
+    "path_type": "json",
+    "checks_verdict": "4/4 ok",
+    "bad": [],
+    "ok": true
+   },
+   {
+    "n": "R4/E18 简单基线臂（用户批准，D17）：UA AP 0.00429/AUC 0.7058；FR",
+    "path_type": "json",
+    "checks_verdict": "6/6 ok",
+    "bad": [],
+    "ok": true
+   }
+  ],
+  "unregistered_floats_in_finalize": [
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.8958"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.8994"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.9210"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.6478"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.6831"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.7402"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.0043"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.0048"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.0056"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.9314"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.8873"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.8867"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.8342"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.8291"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.7393"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.0084"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.0168"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.0056"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.9314"
+   },
+   {
+    "file": "finalize_e3_e4.py",
+    "literal": "0.8382"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "4.207"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.182"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.364"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "3.053"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.182"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.455"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.545"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.1047"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.952"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "1.025"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "3.453"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.002"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.8425"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.9393"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.0008"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.002"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "0.819"
+   },
+   {
+    "file": "finalize_r2.py",
+    "literal": "1.064"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.182"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.182"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "4.207"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.182"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.1047"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "1.3122"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "1.2785"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "3.2905"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.9915"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "1.0275"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "1.000"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.952"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "1.025"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "1.015"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "1.052"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "1.001"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "1.020"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.8284"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.6639"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.8245"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.6722"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.002"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.002"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.074"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.595"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.002"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.0095"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.012"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.092"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.0047"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.0007"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.18391"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.07393"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.0123"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.012"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.002"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.002"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.074"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.595"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.012"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.7037"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.9317"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.557"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.976"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.008"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.002"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.006"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.260"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.276"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.270"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.327"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.342"
+   },
+   {
+    "file": "finalize_r3.py",
+    "literal": "0.320"
+   }
+  ],
+  "warn_stratification": {
+   "l_exempt": [
+    {
+     "file": "finalize_r3.py",
+     "literal": "1.000"
+    }
+   ],
+   "n_quote": 87,
+   "l_register": [
+    {
+     "file": "finalize_r3.py",
+     "literal": "1.3122"
+    },
+    {
+     "file": "finalize_r3.py",
+     "literal": "1.2785"
+    },
+    {
+     "file": "finalize_r3.py",
+     "literal": "3.2905"
+    }
+   ],
+   "unresolved_vs_registry": [],
+   "registry": "results/EXP-R3-REG/warn_stratification_r3.json"
+  },
+  "kappa_formula_recheck": {
+   "arl100": {
+    "recomputed": 1.312416,
+    "registered": 1.3124,
+    "absdiff": 1.6e-05,
+    "ok": true
+   },
+   "arl500": {
+    "recomputed": 1.461638,
+    "registered": 1.4616,
+    "absdiff": 3.8e-05,
+    "ok": true
+   }
+  },
+  "kappa_formula_ok": true,
+  "kappa_uncontextualized_lines": [],
+  "kappa_regression_12785_only": false,
+  "hard_fail": []
+ },
+ "gate3": {
+  "ledger_rows": 91,
+  "chain_intact": true,
+  "broken_at": null,
+  "freeze_drift": [],
+  "freeze_drift_verdict": "PASS：每文件最新冻结 sha256 与现文件逐一比对 50/50 现值一致",
+  "appended_rows": 1,
+  "verify_model_declaration": "内容寻址（行哈希由内容复算断言）+ 漂移受检（冻结值 vs 现文件机器比对）+ 变异自证（拦截力度量 mutation score 见 results/EXP-R3-REG/gate3_mutation_score_r3.json）——对照 in-toto verify 半边 artifact matching（登记值必须与现场工件逐项比对）；单机无信任根：append-only 防中间行篡改，尾部重写防不了（无签名）——由变异自证代位独立审计方申报",
+  "gpu_gate_rule": "GPU 实验门禁（R3B-M3 立规）：训练启动前必须断言 criteria 行已落盘于 provenance_ledger.jsonl（先 criteria 后训练；训练所用 src/*.py 不得晚于 criteria 冻结时刻被编辑，违者冻结失效并在台账如实登记）",
+  "slsa_self_assessment": "现状 SLSA v1.0 自评 L1（存在 provenance=append-only sha256 链+as-of collected_at）；无托管平台签名/RFC 3161 TSA 锚定，不足 L2——如实申报"
+ }
+}
